@@ -39,3 +39,9 @@ nav a.active {
 }
 
 
+app-header {
+    display: block;
+    height: 50px;
+    width: 100%;
+}
+
