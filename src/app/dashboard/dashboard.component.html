@@ -1,0 +1,9 @@
+<h3>Top Initiatives</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let initiative of initiatives" (click)="gotoDetail(initiative)" class="col-1-4">
+    <div class="module initiative">
+      <h4>{{initiative.name}}</h4>
+    </div>
+  </a>
+</div>
+<my-initiative-search></my-initiative-search>

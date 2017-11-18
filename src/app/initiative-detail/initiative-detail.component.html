@@ -1,0 +1,13 @@
+<div *ngIf="initiative" class="top-initiative">
+  <h2>
+    <a href="{{initiative.url}}" target="_blank">{{initiative.name}}</a>
+  </h2>
+  <div>
+    <label>name:
+      <input [(ngModel)]="initiative.name" placeholder="name"/>
+    </label>
+  </div>
+
+</div>
+<button (click)="save()">save</button>
+<button (click)="goBack()">go back</button>

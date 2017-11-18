@@ -1,0 +1,11 @@
+<div id="search-component">
+  <label>Find Initiative
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+    </label>
+  <div>
+    <div *ngFor="let initiative of initiatives | async"
+         (click)="gotoDetail(initiative)" class="search-result" >
+      {{initiative.name}}
+    </div>
+  </div>
+</div>
