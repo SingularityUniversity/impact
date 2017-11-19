@@ -1,29 +1,27 @@
-<h2>Initiatives</h2>
-
-<div>
-  <label>Name:
-    <input #initiativeName />
-  </label>
-  <label>Summary:
-    <input #initiativeSummary />
-  </label>
-  <label>Url:
-    <input #initiativeUrl />
-  </label>
-  <button (click)="add(initiativeName.value, initiativeSummary.value, initiativeUrl.value);
+<div class="initiatives">
+  <div>
+    <h2>Add a new Initiative</h2>
+    <label>Name:
+      <input #initiativeName />
+    </label>
+    <label>Summary:
+      <input #initiativeSummary />
+    </label>
+    <label>Url:
+      <input #initiativeUrl />
+    </label>
+    <button (click)="add(initiativeName.value, initiativeSummary.value, initiativeUrl.value);
    initiativeName.value=''; initiativeSummary.value=''; initiativeUrl.value='';">
-    add
-  </button>
-</div>
-
-<ul class="initiatives">
-  <li *ngFor="let initiative of initiatives" class="initiative">
+      add
+    </button>
+  </div>
+  <div *ngFor="let initiative of initiatives" class="initiative">
     <a routerLink="/detail/{{initiative.name}}">{{initiative.name}}</a>
     <p>{{initiative.summary}}</p>
     <button class="delete" title="delete initiative"
-(click)="delete(initiative)">x</button>
-  </li>
-</ul>
+            (click)="delete(initiative)">x</button>
+  </div>
+</div>
 
 
 

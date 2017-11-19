@@ -23,9 +23,9 @@ import { HeaderComponent } from './header/header.component';
 // and returns simulated server responses.
 // Remove it when a real server is ready to receive requests.
 
-const Testi = InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 200})
+var Test = InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 200});
 
-@NgModule({
+  @NgModule({
   declarations: [
     AppComponent,
     InitiativeComponent,
@@ -33,17 +33,19 @@ const Testi = InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 200})
     MessagesComponent,
     DashboardComponent,
     InitiativeSearchComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    Testi,
+    Test,
     SlideMenuModule,
   ],
   providers: [InitiativeService, MessageService],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }
