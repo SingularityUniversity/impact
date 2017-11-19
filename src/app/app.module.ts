@@ -17,6 +17,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { InitiativeSearchComponent } from './initiative-search/initiative-search.component';
 import { HeaderComponent } from './header/header.component';
+import { UserComponent } from './user/user.component';
 
 
 // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
@@ -34,6 +35,7 @@ var Test = InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 200});
     DashboardComponent,
     InitiativeSearchComponent,
     HeaderComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ var Test = InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 200});
     Test,
     SlideMenuModule,
   ],
+
   providers: [InitiativeService, MessageService],
   bootstrap: [AppComponent]
 })
