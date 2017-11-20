@@ -1,4 +1,27 @@
 h1 {
-  color: #2167b0;
+  color: orange;
   text-align: center;
+  line-height: 50px;
+  margin: 0;
 }
+
+.header-wrapper {
+  position: fixed;
+  background: #2167b0;
+  top: 0; right: 0; left: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-around;
+}
+
+#btn-login {
+  margin-top: 10px;
+}
+
+.hamburger:before,
+  .hamburger span.icon,
+  .hamburger:after
+{
+  background: white!important;
+}
+
