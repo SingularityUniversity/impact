@@ -11,7 +11,6 @@ import { InitiativeService } from '../initiative.service';
   encapsulation: ViewEncapsulation.None
 })
 export class InitiativeDetailComponent implements OnInit {
-  error: any;
 
   @Input () initiative: Initiative;
   constructor(
@@ -25,16 +24,15 @@ export class InitiativeDetailComponent implements OnInit {
     this.getInitiative();
   }
 
-  getInitiative(): void {
+  getInitiative() {
     const name = this.route.snapshot.params['name'];
     this.initiativeService.getInitiative(name)
-      .then(initiative => this.initiative = initiative)
-      .catch(error => this.error = error)
+      .subscribe(initiative => this.initiative = initiative);
   }
 
   save(): void {
-    this.initiativeService.save(this.initiative)
-      .then(() => this.goBack())
+    // this.initiativeService.save(this.initiative)
+    //   .then(() => this.goBack())
   }
 
   goBack(): void {

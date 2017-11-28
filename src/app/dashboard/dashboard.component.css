@@ -42,11 +42,18 @@ h4 {
   cursor: pointer;
   color: #607d8b;
 }
+
 .grid-pad {
   padding: 10px 0;
 }
 .grid-pad > [class*='col-']:last-of-type {
   padding-right: 20px;
+}
+
+img {
+  height: 300px;
+    width: 110%;
+    margin: -10px;
 }
 @media (max-width: 600px) {
   .module {

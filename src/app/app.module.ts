@@ -24,7 +24,6 @@ import { UserComponent } from './user/user.component';
 // and returns simulated server responses.
 // Remove it when a real server is ready to receive requests.
 
-var Test = InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 200});
 
   @NgModule({
   declarations: [
@@ -42,7 +41,6 @@ var Test = InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 200});
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    Test,
     SlideMenuModule,
   ],
 

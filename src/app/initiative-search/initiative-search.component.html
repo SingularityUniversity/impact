@@ -1,11 +1,49 @@
 <div id="search-component">
-  <label>Find Initiative
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
-    </label>
+  <div class="search-tools">
+
+    <div class="search-box">
+      <label for="search-box">Find Initiative
+        <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+      </label>
+      <span class="fa fa-search"></span>
+
+    </div>
+
+    <div class="select-category">
+      <label for="categories">Global Grand Challenge
+        <select name="categories"
+                [(ngModel)]="selectedChallenge"
+                (change)="filterByCategory($event.target.value)">
+          <option *ngFor="let category of categories" value="{{category.id}}">
+            {{ category.name }}
+          </option>
+        </select>
+      </label>
+    </div>
+
+    <div class="select-program">
+      <label for="programs">Type of Initiative
+        <select name="programs"
+                [(ngModel)]="selectedProgram"
+                (change)="filterByProgram($event.target.value)">
+          <option *ngFor="let program of programs" value="{{program.id}}">
+            {{ program.name }}
+          </option>
+        </select>
+      </label>
+    </div>
+
+  </div>
+
   <div>
-    <div *ngFor="let initiative of initiatives | async"
-         (click)="gotoDetail(initiative)" class="search-result" >
-      {{initiative.name}}
+    <h3>Initiatives</h3>
+    <div class="search-result">
+      <a *ngFor="let initiative of initiatives" (click)="gotoDetail(initiative)" class="col-1-4">
+        <div class="module initiative">
+          <h4>{{initiative.name}}</h4>
+        </div>
+      </a>
     </div>
   </div>
+
 </div>

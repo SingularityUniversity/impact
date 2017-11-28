@@ -8,45 +8,6 @@
     box-shadow: 1px 2px 2px 0px;
 }
 
-.initiatives {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-rows: minmax(100px, auto);
-  grid-gap: 30px;
-
-}
-
-label {
-  display: block;
-  width: 100%;
-  margin: .5em 0;
-  color: #607D8B;
-  font-weight: bold;
-}
-input {
-  height: 2em;
-  font-size: 1em;
-  padding-left: .4em;
-  width: 98%;
-}
-button {
-  margin-top: 20px;
-  background-color: #eee;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;  cursor: hand;
-}
-button:hover {
-  background-color: #cfd8dc;
-}
-button:disabled {
-  background-color: #eee;
-  color: #ccc;
-  cursor: auto;
-}
-
-
 button.delete {
   position: relative;
   left: 194px;
@@ -55,8 +16,3 @@ button.delete {
   color: white;
 }
 
-@media (min-width: 700px) {
-  .initiatives {
-    grid-template-columns: repeat(3, 300px);
-  }
-}

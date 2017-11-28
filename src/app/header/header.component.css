@@ -1,17 +1,19 @@
 h1 {
   color: orange;
   text-align: center;
-  line-height: 50px;
+  line-height: 60px;
   margin: 0;
 }
 
 .header-wrapper {
   position: fixed;
+  height: 60px;
   background: #2167b0;
   top: 0; right: 0; left: 0;
   z-index: 100;
   display: flex;
   justify-content: space-around;
+  align-items: baseline;
 }
 
 #btn-login {

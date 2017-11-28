@@ -14,7 +14,6 @@ import { InitiativeService } from '../initiative.service';
 
 export class DashboardComponent implements OnInit {
   initiatives: Initiative[] = [];
-  error: any;
 
   constructor(
     private router: Router,
@@ -28,13 +27,7 @@ export class DashboardComponent implements OnInit {
 
   getInitiatives(): void {
     this.initiativeService.getInitiatives()
-      .then(initiatives => this.initiatives = initiatives.slice(1,5))
-      .catch(error => this.error = error);
-  }
-
-    gotoDetail(initiative: Initiative): void {
-    const link = ['/detail', initiative.name];
-    this.router.navigate(link).then();
+      .subscribe(initiatives => this.initiatives = initiatives.slice(1,5));
   }
 
 
