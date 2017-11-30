@@ -1,58 +1,66 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { InitiativeSearchService } from '../initiative-search.service';
 import { Initiative } from '../initiative';
+import { InitiativeDataService } from '../initiative-data.service';
+import {FormControl} from '@angular/forms';
+import {Observable}  from 'rxjs/Observable';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/throttleTime';
+import 'rxjs/add/observable/fromEvent';
 
 @Component({
   selector: 'my-initiative-search',
   templateUrl: './initiative-search.component.html',
   styleUrls: ['./initiative-search.component.css'],
-  providers: [InitiativeSearchService]
+  providers: [InitiativeSearchService, InitiativeDataService]
 })
 export class InitiativeSearchComponent implements OnInit {
   public initiatives: Initiative[];
-  public selectedChallenge: Object;
-  public selectedProgram: Object;
+  public selectedCategory: number;
+  public selectedProgram: number;
+  public searchTerm: string;
+  public categories: String[];
+  public programs: String[];
 
-  public categories: Object[] = [
-    {name: "Health", id: 0},
-    {name: "Housing", id: 1},
-    {name: "Agriculture", id: 2}
-  ];
-
-  public programs: Object[] = [
-    {name: "New Org", id: 0},
-    {name: "Mobilized Resources", id: 1}
-  ];
+  public searchControl = new FormControl();
 
 
   constructor(
     private initiativeSearchService: InitiativeSearchService,
+    private initiativeDataService: InitiativeDataService,
     private router: Router) { }
 
   ngOnInit(): void {
     this.activate();
   }
 
+  ngAfterViewInit() {
+    this.setupSearch();
+  }
+
   private activate(): void {
-    this.initiatives = this.initiativeSearchService.activate();
+    this.initiatives = this.initiativeDataService.INITIATIVES.slice(0, 4);
+    this.categories = this.initiativeDataService.CATEGORIES;
+    this.programs = this.initiativeDataService.PROGRAMS;
   }
 
-  public filterByCategory(value: number) {
-    this.initiatives = this.initiativeSearchService.filter('category', value);
-  }
-
-  public filterByProgram(value: number) {
-    this.initiatives = this.initiativeSearchService.filter('program', value);
-  }
-
-  public search(term: string): void {
-    this.initiatives = this.initiativeSearchService.search(term);
+  private setupSearch() {
+    this.searchControl.valueChanges
+      .debounceTime(100)
+      .subscribe(() => {
+        const t0 = window.performance.now();
+        this.initiatives = this.initiativeSearchService.search(
+          this.searchTerm, this.selectedCategory, this.selectedProgram
+        );
+        console.log(this.initiatives);
+        const t1 = window.performance.now();
+        console.info('search time(ms):', t1 - t0)
+      });
   }
 
   public gotoDetail(initiative: Initiative): void {
     const link = ['/detail', initiative.name];
     this.router.navigate(link).then();
   }
-
 }

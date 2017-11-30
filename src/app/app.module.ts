@@ -1,16 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Provider} from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { InMemoryWebApiModule} from 'angular2-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 
 import { SlideMenuModule } from 'cuppa-ng2-slidemenu/cuppa-ng2-slidemenu';
 
 import { AppComponent } from './app.component';
-import { InitiativeComponent } from './initiative/initiative.component';
 import { InitiativeDetailComponent } from './initiative-detail/initiative-detail.component';
 import { InitiativeService } from './initiative.service';
+import { InitiativeDataService } from './initiative-data.service';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 import { AppRoutingModule } from './/app-routing.module';
@@ -28,7 +26,6 @@ import { UserComponent } from './user/user.component';
   @NgModule({
   declarations: [
     AppComponent,
-    InitiativeComponent,
     InitiativeDetailComponent,
     MessagesComponent,
     DashboardComponent,
@@ -39,12 +36,13 @@ import { UserComponent } from './user/user.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
     SlideMenuModule,
   ],
 
-  providers: [InitiativeService, MessageService],
+  providers: [InitiativeService, InitiativeDataService, MessageService],
   bootstrap: [AppComponent]
 })
 

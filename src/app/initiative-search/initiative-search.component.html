@@ -1,9 +1,9 @@
 <div id="search-component">
   <div class="search-tools">
 
-    <div class="search-box">
+    <div>
       <label for="search-box">Find Initiative
-        <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+        <input [(ngModel)]="searchTerm" id="search-box" [formControl]="searchControl" />
       </label>
       <span class="fa fa-search"></span>
 
@@ -12,10 +12,10 @@
     <div class="select-category">
       <label for="categories">Global Grand Challenge
         <select name="categories"
-                [(ngModel)]="selectedChallenge"
-                (change)="filterByCategory($event.target.value)">
-          <option *ngFor="let category of categories" value="{{category.id}}">
-            {{ category.name }}
+                [(ngModel)]="selectedCategory"
+                (change)="search()">
+          <option *ngFor="let category of categories; let i = index;" [attr.value]="i">
+            {{ category }}
           </option>
         </select>
       </label>
@@ -25,9 +25,9 @@
       <label for="programs">Type of Initiative
         <select name="programs"
                 [(ngModel)]="selectedProgram"
-                (change)="filterByProgram($event.target.value)">
-          <option *ngFor="let program of programs" value="{{program.id}}">
-            {{ program.name }}
+                (change)="search()">
+          <option *ngFor="let program of programs; let i = index;" [attr.value]="i">
+            {{ program }}
           </option>
         </select>
       </label>
@@ -43,6 +43,7 @@
           <h4>{{initiative.name}}</h4>
         </div>
       </a>
+      <p *ngIf="initiatives.length === 0">No Initiatives found</p>
     </div>
   </div>
 

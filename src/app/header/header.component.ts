@@ -28,10 +28,8 @@ export class HeaderComponent implements OnInit {
     {"title":"Dashboard","link":"./dashboard",
       "subItems":[
         {"title": "Dashboard", "link":"./dashboard"},
-        {"title": "Initiatives", "link":"./initiatives"}
       ]
     },
-    {"title":"Initiatives","link":"./initiatives"},
   ];
 
 

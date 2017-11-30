@@ -1,13 +1,42 @@
-<div *ngIf="initiative" class="top-initiative">
-  <h2>
-    <a href="{{initiative.url}}" target="_blank">{{initiative.name}}</a>
-  </h2>
+<div *ngIf="initiative" class="initiative-detail">
+
+  <div class="jumbotron"
+       style="background-image:
+       url(https://su-cms-prod.s3.amazonaws.com/media/news_images/support_people2_tech_robotics.jpg);">
+    <div class="text">
+      <h1 class="title">{{ initiative.name | uppercase }}</h1>
+      <a *ngIf="initiative.url" class="visit-site" href="{{ initiative.url }}" target="_blank">VISIT SITE</a>
+    </div>
+  </div>
+
+  <div class="initiative-summary">
+    <h1>{{ initiative.summary | uppercase }}</h1>
+    <h3>Category: {{ initiative.category }}</h3>
+    <h3>Program: {{ initiative.program }}</h3>
+  </div>
+<div class="col-2">
   <div>
-    <label>name:
-      <input [(ngModel)]="initiative.name" placeholder="name"/>
-    </label>
+    <h3>THE CHALLENGE</h3>
+    <p>
+      fskfjsl sajflsjdf sajflsjdf aj asfjlsajf sjdlfjsal fjlasjdf jslajf sjlajfsad
+      aksjflsdf asjfdljsf js jfaljdfjs afjsd  asfkldjsda jfjsdafj lsdafls aj fsj s a
+      lsajfldjs fslajfljsa fjsj fsajfljsajf las fsaf ldsjfja jfsa f saf lsf saf jlsjdf
+      klajfj  afjklsaj f afdlkas f sfa asklfsd f slfs jafjsa jflksjlfj ds jfds as fjljsal
+      aklfsdlaj f a fl saldfj sal jfs jdfsajlfjlsdjfl sa fsa fsadlkflsadjfls j af sdlk fas
+    </p>
+  </div>
+
+  <div>
+    <h3>THE IMPACT</h3>
+    <p>
+      fskfjsl sajflsjdf sajflsjdf aj asfjlsajf sjdlfjsal fjlasjdf jslajf sjlajfsad
+      aksjflsdf asjfdljsf js jfaljdfjs afjsd  asfkldjsda jfjsdafj lsdafls aj fsj s a
+      lsajfldjs fslajfljsa fjsj fsajfljsajf las fsaf ldsjfja jfsa f saf lsf saf jlsjdf
+      klajfj  afjklsaj f afdlkas f sfa asklfsd f slfs jafjsa jflksjlfj ds jfds as fjljsal
+      aklfsdlaj f a fl saldfj sal jfs jdfsajlfjlsdjfl sa fsa fsadlkflsadjfls j af sdlk fas
+    </p>
+  </div>
   </div>
 
 </div>
-<button (click)="save()">save</button>
 <button (click)="goBack()">go back</button>

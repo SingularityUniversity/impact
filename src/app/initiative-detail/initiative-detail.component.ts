@@ -26,13 +26,8 @@ export class InitiativeDetailComponent implements OnInit {
 
   getInitiative() {
     const name = this.route.snapshot.params['name'];
-    this.initiativeService.getInitiative(name)
-      .subscribe(initiative => this.initiative = initiative);
-  }
+    this.initiative = this.initiativeService.getInitiative(name);
 
-  save(): void {
-    // this.initiativeService.save(this.initiative)
-    //   .then(() => this.goBack())
   }
 
   goBack(): void {

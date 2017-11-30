@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
 
 import {  Initiative } from '../initiative';
 import { InitiativeService } from '../initiative.service';
@@ -16,7 +15,6 @@ export class DashboardComponent implements OnInit {
   initiatives: Initiative[] = [];
 
   constructor(
-    private router: Router,
     private initiativeService: InitiativeService) {
 
   }
@@ -26,8 +24,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getInitiatives(): void {
-    this.initiativeService.getInitiatives()
-      .subscribe(initiatives => this.initiatives = initiatives.slice(1,5));
+    // this.initiativeService.getInitiatives()
   }
 
 

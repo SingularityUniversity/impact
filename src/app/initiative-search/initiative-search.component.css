@@ -9,7 +9,7 @@
 .search-tools label,
 .search-tools select,
 .search-tools input {
-  width: 200px;
+  width: 275px;
   display: inline-block;
   height: 40px;
   font-size: 1em;
@@ -40,7 +40,7 @@
   border: 1px solid lightgray;
 }
 
-.search-box {
+.search-tools > div {
   position: relative;
 }
 
@@ -59,11 +59,9 @@
   justify-content: space-around;
 }
 
-
-
-
-
-
+.search-result p {
+  color: red;
+}
 
 label {
   display: block;
