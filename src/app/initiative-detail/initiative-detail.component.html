@@ -1,42 +1,121 @@
 <div *ngIf="initiative" class="initiative-detail">
 
-  <div class="jumbotron"
-       style="background-image:
-       url(https://su-cms-prod.s3.amazonaws.com/media/news_images/support_people2_tech_robotics.jpg);">
-    <div class="text">
-      <h1 class="title">{{ initiative.name | uppercase }}</h1>
-      <a *ngIf="initiative.url" class="visit-site" href="{{ initiative.url }}" target="_blank">VISIT SITE</a>
+  <div>
+
+    <div class="jumbotron initiative-detail-header"
+         style="background: url(https://su-cms-prod.s3.amazonaws.com/media/news_images/support_people2_tech_robotics.jpg);
+       background-size: cover; background-position: center center;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6"></div>
+          <div class="col-md-6 float-right align-self-center">
+            <div class="hero-content">
+              <p class="small-text text-white"></p>
+              <div class="h2 text-white"><p><strong>{{ initiative.name }}</strong></p>
+              </div>
+              <a href="{{ initiative.url }}" class="btn primary">
+                Visit Site							<span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="initiative-info">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-4">
+            <div class="h2">
+              <p><span>
+              <strong>
+                {{ initiative.summary.slice(0, 40) }}
+              </strong> {{ initiative.summary.slice(40, 80) }}
+            </span></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="stats">
+              <div class="img-container" style="background-image:url('https://acumen.org//wp-content/themes/acumen-theme/img/global/east-africa.png'); background-position: center; background-size: cover;"></div>
+              <div class="main">TECHNOLOGY FOCUS</div>
+              <div class="sub">{{ initiative.tech }}</div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="stats">
+              <div class="gcc-box">
+                <div class="img-container">
+                  <svg width="21px" height="32px" viewBox="0 0 21 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="red">
+                      <g id="2.2-Sectors" transform="translate(-240.000000, -1294.000000)" fill="#FFFFFF">
+                        <g id="Group-8" transform="translate(110.000000, 1130.000000)">
+                          <g id="Card-01">
+                            <path d="M132.502669,190.661111 C131.621855,187.636306 129.894097,179.944773 133.090418,174.408312 C137.153275,167.375531 149.060125,164 149.060125,164 C149.060125,164 152.092842,176.000191 148.028289,183.032971 C144.835948,188.564849 137.319605,190.914597 134.254204,191.666029 L131.74971,196 L130,194.991923 L132.502669,190.661111 L132.502669,190.661111 Z" id="Combined-Shape-Copy-35"></path>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>						</div>
+              </div>
+              <div class="main">GLOBAL GRAND CHALLENGE</div>
+              <div class="sub">{{ initiative.ggc }}</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="info-columns">
+
+      <div class="container  ">
+        <div class="row">
+          <div class="col-md-4 three-wide info-box ">
+            <div>
+
+              <p class="section-title">
+                MASSIVE TRANSFORMATIVE PURPOSE</p>
+              <div class="info_text">
+                <p><span>{{ initiative.summary }}
+            </span></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 three-wide info-box ">
+            <div>
+
+              <p class="section-title">
+                GLOBAL GRAND CHALLENGE								</p>
+              <div class="info_text"><p>
+              <span><b>Security: </b>Safety of all people from physical and psychological harm,
+                including in virtual worlds; and protection of physical,
+                financial, digital systems.
+              </span></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 three-wide info-box ">
+            <div>
+
+              <p class="section-title">
+                EXPONENTIAL TECHNOLOGIES								</p>
+              <div class="info_text"><p>
+              <span>Exponential technologies have a tendency to move from a deceptively
+                slow pace of development to a disruptively fast pace. We often disregard
+                or don’t notice technologies in the deceptive growth phase, until they
+                begin changing the way we live and do business. Driven by information
+                technologies, products and services become digitized, dematerialized,
+                demonetized and/or democratized and enter a phase of exponential growth.
+              </span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
   </div>
-
-  <div class="initiative-summary">
-    <h1>{{ initiative.summary | uppercase }}</h1>
-    <h3>Category: {{ initiative.category }}</h3>
-    <h3>Program: {{ initiative.program }}</h3>
-  </div>
-<div class="col-2">
-  <div>
-    <h3>THE CHALLENGE</h3>
-    <p>
-      fskfjsl sajflsjdf sajflsjdf aj asfjlsajf sjdlfjsal fjlasjdf jslajf sjlajfsad
-      aksjflsdf asjfdljsf js jfaljdfjs afjsd  asfkldjsda jfjsdafj lsdafls aj fsj s a
-      lsajfldjs fslajfljsa fjsj fsajfljsajf las fsaf ldsjfja jfsa f saf lsf saf jlsjdf
-      klajfj  afjklsaj f afdlkas f sfa asklfsd f slfs jafjsa jflksjlfj ds jfds as fjljsal
-      aklfsdlaj f a fl saldfj sal jfs jdfsajlfjlsdjfl sa fsa fsadlkflsadjfls j af sdlk fas
-    </p>
-  </div>
-
-  <div>
-    <h3>THE IMPACT</h3>
-    <p>
-      fskfjsl sajflsjdf sajflsjdf aj asfjlsajf sjdlfjsal fjlasjdf jslajf sjlajfsad
-      aksjflsdf asjfdljsf js jfaljdfjs afjsd  asfkldjsda jfjsdafj lsdafls aj fsj s a
-      lsajfldjs fslajfljsa fjsj fsajfljsajf las fsaf ldsjfja jfsa f saf lsf saf jlsjdf
-      klajfj  afjklsaj f afdlkas f sfa asklfsd f slfs jafjsa jflksjlfj ds jfds as fjljsal
-      aklfsdlaj f a fl saldfj sal jfs jdfsajlfjlsdjfl sa fsa fsadlkflsadjfls j af sdlk fas
-    </p>
-  </div>
-  </div>
-
-</div>
-<button (click)="goBack()">go back</button>

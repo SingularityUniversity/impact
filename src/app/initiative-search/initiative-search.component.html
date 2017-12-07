@@ -9,42 +9,68 @@
 
     </div>
 
-    <div class="select-category">
-      <label for="categories">Global Grand Challenge
-        <select name="categories"
-                [(ngModel)]="selectedCategory"
+    <div class="select-ggc">
+      <label for="ggcs">Global Grand Challenge
+        <select name="ggcs"
+                [(ngModel)]="selectedGGC"
                 (change)="search()">
-          <option *ngFor="let category of categories; let i = index;" [attr.value]="i">
-            {{ category }}
+          <option *ngFor="let ggc of ggcs">
+            {{ ggc }}
           </option>
         </select>
       </label>
     </div>
 
-    <div class="select-program">
-      <label for="programs">Type of Initiative
-        <select name="programs"
-                [(ngModel)]="selectedProgram"
+    <div class="select-tech">
+      <label for="tech">Technology Focus
+        <select name="tech"
+                [(ngModel)]="selectedTech"
                 (change)="search()">
-          <option *ngFor="let program of programs; let i = index;" [attr.value]="i">
-            {{ program }}
+          <option *ngFor="let tech of techs">
+            {{ tech }}
           </option>
         </select>
       </label>
     </div>
-
   </div>
 
-  <div>
-    <h3>Initiatives</h3>
-    <div class="search-result">
-      <a *ngFor="let initiative of initiatives" (click)="gotoDetail(initiative)" class="col-1-4">
-        <div class="module initiative">
-          <h4>{{initiative.name}}</h4>
+  <div class="search-results">
+    <div *ngFor="let initiative of initiatives"
+      class="initiative-listing">
+
+      <a routerLink="/detail/{{ initiative.name }}" class="initiative">
+        <div class="initiative-content">
+
+
+          <div class="image"
+               style="background: url(https://su-cms-prod.s3.amazonaws.com/media/news_images/hand-butterflies-su-exponential.jpeg);
+                background-position: center center; background-size: cover;">
+          </div>
+          <div class="initiative-info">
+            <div class="ggc-box">
+              <span></span>
+              <svg width="27px" height="26px" viewBox="0 0 27 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="2.2-Sectors" transform="translate(-537.000000, -1625.000000)" fill="#FFFFFF">
+                    <g id="Group-8" transform="translate(110.000000, 1130.000000)">
+                      <g id="Card-06" transform="translate(300.000000, 330.000000)">
+                        <polygon id="Fill-1-Copy-3" points="127 178.418453 130.354981 178.418453 130.354981 190.998529 137.064943 190.998529 137.064943 181.773434 143.773434 181.773434 143.773434 191 150.483397 191 150.483397 178.418453 153.838378 178.418453 140.416983 165"></polygon>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>					</div>
+            <p class="small-text">{{ initiative['type of initiative']}}</p>
+            <p class="name">{{ initiative.name }}</p>
+          </div>
         </div>
       </a>
-      <p *ngIf="initiatives.length === 0">No Initiatives found</p>
     </div>
+
+
+
+
+    <p *ngIf="initiatives.length === 0">No Initiatives found</p>
   </div>
 
 </div>

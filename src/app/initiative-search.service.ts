@@ -10,7 +10,7 @@ export class InitiativeSearchService {
   constructor() {
   }
 
-  public search(searchTerm: string, category: number, program: number): Initiative[] {
+  public search(searchTerm: string, ggc_focus: string, tech_focus: string): Initiative[] {
 
     var results = this.INITIATIVES;
     if (searchTerm !== undefined) {
@@ -23,15 +23,15 @@ export class InitiativeSearchService {
           return initiative.name.toLowerCase().indexOf(searchTerm) >= 0
         });
     }
-    if (category !== undefined) {
+    if (ggc_focus !== undefined) {
 
       results = results.filter(function(initiative) {
-        // console.log(initiative.category, category, initiative.category === category)
-        return initiative.category == category
+        // console.log(initiative.ggc_focus, ggc_focus, initiative.ggc_focus === ggc_focus)
+        return initiative.ggc_focus.indexOf(ggc_focus) > -1
       });
     }
-    if (program !== undefined) {
-      results = results.filter(initiative => initiative.program == program);
+    if (tech_focus !== undefined) {
+      results = results.filter(initiative => initiative.tech_focus.indexOf(tech_focus) > -1);
     }
     return results;
   }

@@ -27,7 +27,10 @@ export class InitiativeDetailComponent implements OnInit {
   getInitiative() {
     const name = this.route.snapshot.params['name'];
     this.initiative = this.initiativeService.getInitiative(name);
-
+    this.initiative.ggc = this.initiative.ggc_focus.join(", ");
+    this.initiative.tech = this.initiative.tech_focus.join(", ");
+    this.initiative.region = this.initiative.region_of_impact.join(", ");
+    console.log(this.initiative)
   }
 
   goBack(): void {
