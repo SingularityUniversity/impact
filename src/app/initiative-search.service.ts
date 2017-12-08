@@ -27,14 +27,12 @@ export class InitiativeSearchService {
     if (ggc_focus !== undefined) {
 
       this.results = this.results.filter(function(initiative) {
-        // console.log(initiative.ggc_focus, ggc_focus, initiative.ggc_focus === ggc_focus)
         return initiative.ggc_focus.indexOf(ggc_focus) > -1
       });
     }
     if (tech_focus !== undefined) {
       this.results = this.results.filter(initiative => initiative.tech_focus.indexOf(tech_focus) > -1);
     }
-    console.log('results: ', this.results);
     return this.results;
   }
 

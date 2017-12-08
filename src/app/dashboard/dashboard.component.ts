@@ -25,7 +25,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getInitiatives(initiatives): void {
-    console.log('dashboard initiatives', this.initiatives)
     this.initiatives = initiatives;
   }
 

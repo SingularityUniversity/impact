@@ -27,6 +27,8 @@ router-outlet {
       margin-left: 0;
       margin-right: 0;
       font-family: "Proxima Nova", sans-serif;
-    }
+  background: #f2f2f2;
+}
+
 
 

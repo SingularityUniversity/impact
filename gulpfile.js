@@ -19,8 +19,8 @@ gulp.task('amend', function() {
 
 gulp.task('build', ['amend'], function (cb) {
   exec('ng build', function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
+    console.info(stdout);
+    console.info(stderr);
     cb(err);
   })
 })

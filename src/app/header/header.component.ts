@@ -33,15 +33,6 @@ export class HeaderComponent implements OnInit {
   ];
 
 
-
-  public onMenuClose() {
-    console.log("menu closed")
-  }
-
-  public onMenuOpen(){
-    console.log("menu Opened");
-  }
-
   public onItemSelect(item:any){
   if(!item.subItems) {
     this.router.navigate([item.link])
