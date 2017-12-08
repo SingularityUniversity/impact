@@ -43,8 +43,9 @@ export class InitiativeSearchComponent implements OnInit {
     this.initiatives = this.initiativeDataService.INITIATIVES.slice(0, 4);
     this.ggcs = this.initiativeDataService.GGCS;
     this.techs = this.initiativeDataService.TECHS;
-    this.ggcs.push("");
-    this.techs.push("")
+    this.ggcs.unshift("");
+    this.techs.unshift("");
+    console.log(this.ggcs)
   }
 
   private setupSearch() {
@@ -55,6 +56,7 @@ export class InitiativeSearchComponent implements OnInit {
         this.initiatives = this.initiativeSearchService.search(
           this.searchTerm, this.selectedGGC, this.selectedTech
         );
+        this.searchConducted.emit(this.initiatives)
         const t1 = window.performance.now();
         console.info('search time(ms):', t1 - t0)
       });
