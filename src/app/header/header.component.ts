@@ -5,7 +5,7 @@ import { Router } from "@angular/router";
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class HeaderComponent implements OnInit {
 

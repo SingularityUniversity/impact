@@ -1,13 +1,6 @@
-.header-wrapper h1 {
-  color: white;
-  text-align: center;
-  line-height: 60px;
-  margin: 0;
-}
-
-.header-wrapper {
+.header {
   position: fixed;
-  height: 60px;
+  height: 50px;
   background: #2167b0;
   top: 0; right: 0; left: 0;
   z-index: 100;
@@ -15,6 +8,14 @@
   justify-content: space-around;
   align-items: baseline;
 }
+
+.header h1 {
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  margin: 0;
+}
+
 
 #btn-login {
   margin-top: 10px;

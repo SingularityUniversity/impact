@@ -1,15 +1,13 @@
-<div id="search-component">
   <div class="search-tools">
 
-    <div>
+    <div class="box">
       <label for="search-box">Find Initiative
         <input [(ngModel)]="searchTerm" id="search-box" [formControl]="searchControl" />
       </label>
-      <span class="fa fa-search"></span>
-
+      <span class="fa fa-search" (click)="search()"></span>
     </div>
 
-    <div class="select-ggc">
+    <div class="box">
       <label for="ggcs">Global Grand Challenge
         <select name="ggcs"
                 [(ngModel)]="selectedGGC"
@@ -21,7 +19,7 @@
       </label>
     </div>
 
-    <div class="select-tech">
+    <div class="box">
       <label for="tech">Technology Focus
         <select name="tech"
                 [(ngModel)]="selectedTech"
@@ -32,45 +30,6 @@
         </select>
       </label>
     </div>
+
   </div>
 
-  <div class="search-results">
-    <div *ngFor="let initiative of initiatives"
-      class="initiative-listing">
-
-      <a routerLink="/detail/{{ initiative.name }}" class="initiative">
-        <div class="initiative-content">
-
-
-          <div class="image"
-               style="background: url(https://su-cms-prod.s3.amazonaws.com/media/news_images/hand-butterflies-su-exponential.jpeg);
-                background-position: center center; background-size: cover;">
-          </div>
-          <div class="initiative-info">
-            <div class="ggc-box">
-              <span></span>
-              <svg width="27px" height="26px" viewBox="0 0 27 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g id="2.2-Sectors" transform="translate(-537.000000, -1625.000000)" fill="#FFFFFF">
-                    <g id="Group-8" transform="translate(110.000000, 1130.000000)">
-                      <g id="Card-06" transform="translate(300.000000, 330.000000)">
-                        <polygon id="Fill-1-Copy-3" points="127 178.418453 130.354981 178.418453 130.354981 190.998529 137.064943 190.998529 137.064943 181.773434 143.773434 181.773434 143.773434 191 150.483397 191 150.483397 178.418453 153.838378 178.418453 140.416983 165"></polygon>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>					</div>
-            <p class="small-text">{{ initiative['type of initiative']}}</p>
-            <p class="name">{{ initiative.name }}</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-
-
-
-    <p *ngIf="initiatives.length === 0">No Initiatives found</p>
-  </div>
-
-</div>

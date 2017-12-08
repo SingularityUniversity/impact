@@ -1,13 +1,14 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import {  Initiative } from '../initiative';
-import { InitiativeService } from '../initiative.service';
+import {InitiativeSearchService} from "../initiative-search.service";
+import {InitiativeSearchComponent} from "../initiative-search/initiative-search.component";
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
-  encapsulation: ViewEncapsulation.None
+  providers: [InitiativeSearchService],
 
 })
 
@@ -15,16 +16,17 @@ export class DashboardComponent implements OnInit {
   initiatives: Initiative[] = [];
 
   constructor(
-    private initiativeService: InitiativeService) {
+    private initiativeSearchService: InitiativeSearchService) {
 
   }
 
   ngOnInit() {
-    this.getInitiatives();
+    this.initiatives = this.initiativeSearchService.results;
   }
 
-  getInitiatives(): void {
-    // this.initiativeService.getInitiatives()
+  getInitiatives(initiatives): void {
+    console.log('dashboard initiatives', this.initiatives)
+    this.initiatives = initiatives;
   }
 
 

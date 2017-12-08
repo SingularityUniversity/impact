@@ -16,6 +16,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { InitiativeSearchComponent } from './initiative-search/initiative-search.component';
 import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
+import { InitiativesComponent } from './initiatives/initiatives.component';
 
 
 // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
@@ -32,6 +33,7 @@ import { UserComponent } from './user/user.component';
     InitiativeSearchComponent,
     HeaderComponent,
     UserComponent,
+    InitiativesComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,16 +6,17 @@ import { InitiativeDataService } from './initiative-data.service';
 export class InitiativeSearchService {
 
   INITIATIVES: Initiative[] = new InitiativeDataService().INITIATIVES;
+  public results: Initiative[] = this.INITIATIVES.slice(0, 2);
 
   constructor() {
   }
 
   public search(searchTerm: string, ggc_focus: string, tech_focus: string): Initiative[] {
 
-    var results = this.INITIATIVES;
+    this.results = this.INITIATIVES;
     if (searchTerm !== undefined) {
       searchTerm = searchTerm.toLocaleLowerCase();
-      results = results.filter(
+      this.results = this.results.filter(
         initiative => {
           if (initiative.summary) {
             return initiative.name.toLowerCase().indexOf(searchTerm) >= 0 || initiative.summary.toLowerCase().indexOf(searchTerm) >= 0
@@ -25,15 +26,16 @@ export class InitiativeSearchService {
     }
     if (ggc_focus !== undefined) {
 
-      results = results.filter(function(initiative) {
+      this.results = this.results.filter(function(initiative) {
         // console.log(initiative.ggc_focus, ggc_focus, initiative.ggc_focus === ggc_focus)
         return initiative.ggc_focus.indexOf(ggc_focus) > -1
       });
     }
     if (tech_focus !== undefined) {
-      results = results.filter(initiative => initiative.tech_focus.indexOf(tech_focus) > -1);
+      this.results = this.results.filter(initiative => initiative.tech_focus.indexOf(tech_focus) > -1);
     }
-    return results;
+    console.log('results: ', this.results);
+    return this.results;
   }
 
 }

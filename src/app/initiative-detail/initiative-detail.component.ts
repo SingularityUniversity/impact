@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Initiative } from '../initiative';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -8,7 +8,6 @@ import { InitiativeService } from '../initiative.service';
   selector: 'app-initiative-detail',
   templateUrl: './initiative-detail.component.html',
   styleUrls: ['./initiative-detail.component.css'],
-  encapsulation: ViewEncapsulation.None
 })
 export class InitiativeDetailComponent implements OnInit {
 
@@ -30,7 +29,6 @@ export class InitiativeDetailComponent implements OnInit {
     this.initiative.ggc = this.initiative.ggc_focus.join(", ");
     this.initiative.tech = this.initiative.tech_focus.join(", ");
     this.initiative.region = this.initiative.region_of_impact.join(", ");
-    console.log(this.initiative)
   }
 
   goBack(): void {

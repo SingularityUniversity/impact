@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { InitiativeSearchService } from '../initiative-search.service';
 import { Initiative } from '../initiative';
@@ -12,7 +12,6 @@ import 'rxjs/add/observable/fromEvent';
   selector: 'my-initiative-search',
   templateUrl: './initiative-search.component.html',
   styleUrls: ['./initiative-search.component.css'],
-  providers: [InitiativeSearchService, InitiativeDataService]
 })
 export class InitiativeSearchComponent implements OnInit {
   public initiatives: Initiative[];
@@ -23,6 +22,8 @@ export class InitiativeSearchComponent implements OnInit {
   public techs: String[];
 
   public searchControl = new FormControl();
+
+  @Output() searchConducted: EventEmitter<Initiative[]> = new EventEmitter<Initiative[]>();
 
 
   constructor(
@@ -68,5 +69,6 @@ export class InitiativeSearchComponent implements OnInit {
     this.initiatives = this.initiativeSearchService.search(
           this.searchTerm, this.selectedGGC, this.selectedTech
         );
+    this.searchConducted.emit(this.initiatives)
   }
 }

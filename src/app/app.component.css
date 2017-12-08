@@ -1,10 +1,32 @@
-body {
-  font-family: "Proxima Nova", sans-serif;
-}
-
 app-header {
     display: block;
     height: 50px;
     width: 100%;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
+
+router-outlet {
+  margin-top: 50px;
+  display: block;
+}
+
+    a {
+      text-decoration: none;
+    }
+    *, *:after, *:before {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin-left: 0;
+      margin-right: 0;
+      font-family: "Proxima Nova", sans-serif;
+    }
+
 
