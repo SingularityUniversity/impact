@@ -1,11 +1,10 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  encapsulation: ViewEncapsulation.Emulated
 })
 export class HeaderComponent implements OnInit {
 
@@ -22,7 +21,9 @@ export class HeaderComponent implements OnInit {
   public title = "Impact Initiatives";
 
 
-
+  /**
+   * Array of links and sublinks in  cuppa sidenav
+   */
   public menuItemsArray: any[] = [
     {"title":"Home", "link":"/"},
     {"title":"Dashboard","link":"./dashboard",
@@ -32,7 +33,10 @@ export class HeaderComponent implements OnInit {
     },
   ];
 
-
+  /**
+   * Navigates to the link and hides the sidenav
+   * @param {object} item - sidenav link
+   */
   public onItemSelect(item:any){
   if(!item.subItems) {
     this.router.navigate([item.link])

@@ -12,6 +12,7 @@ import 'rxjs/add/observable/fromEvent';
   selector: 'my-initiative-search',
   templateUrl: './initiative-search.component.html',
   styleUrls: ['./initiative-search.component.css'],
+  providers: [InitiativeSearchService, InitiativeDataService]
 })
 export class InitiativeSearchComponent implements OnInit {
   public initiatives: Initiative[];
@@ -29,7 +30,9 @@ export class InitiativeSearchComponent implements OnInit {
   constructor(
     private initiativeSearchService: InitiativeSearchService,
     private initiativeDataService: InitiativeDataService,
-    private router: Router) { }
+    private router: Router) {
+
+  }
 
   ngOnInit(): void {
     this.activate();
@@ -39,34 +42,35 @@ export class InitiativeSearchComponent implements OnInit {
     this.setupSearch();
   }
 
+  /**
+   * Loads list of technologies and global grand challenges for the select tag
+   */
   private activate(): void {
-    this.initiatives = this.initiativeDataService.INITIATIVES.slice(0, 4);
     this.ggcs = this.initiativeDataService.GGCS;
     this.techs = this.initiativeDataService.TECHS;
     this.ggcs.unshift("");
     this.techs.unshift("");
-    console.log(this.ggcs)
   }
 
-  private setupSearch() {
+  /**
+   * Sets up an event listener that searches for initiatives when user types in
+   * the search input box. Emits search results to other components.
+   */
+  public setupSearch() {
     this.searchControl.valueChanges
       .debounceTime(100)
       .subscribe(() => {
-        const t0 = window.performance.now();
         this.initiatives = this.initiativeSearchService.search(
           this.searchTerm, this.selectedGGC, this.selectedTech
         );
-        this.searchConducted.emit(this.initiatives)
-        const t1 = window.performance.now();
-        console.info('search time(ms):', t1 - t0)
+        this.searchConducted.emit(this.initiatives);
       });
   }
 
-  public gotoDetail(initiative: Initiative): void {
-    const link = ['/detail', initiative.name];
-    this.router.navigate(link).then();
-  }
 
+  /**
+   * Searches initiatives
+   */
   public search() {
     this.initiatives = this.initiativeSearchService.search(
           this.searchTerm, this.selectedGGC, this.selectedTech

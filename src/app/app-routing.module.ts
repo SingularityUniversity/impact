@@ -9,9 +9,5 @@ const routes: Routes = [
   { path: 'detail/:name', component: InitiativeDetailComponent }
 ];
 
-@NgModule({
-  imports: [ RouterModule.forRoot(routes)],
-  exports: [ RouterModule ]
-})
 
-export class AppRoutingModule { }
+export const routing = RouterModule.forRoot(routes);
