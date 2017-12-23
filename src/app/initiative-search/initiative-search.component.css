@@ -32,6 +32,14 @@ input, select {
   border-radius: 5px;
 }
 
+input:hover, select:hover {
+  border: solid 1px #607D8B;
+}
+
+input:focus, select:focus {
+  outline: none;
+}
+
 label {
   margin: .5em 0;
   color: #607D8B;

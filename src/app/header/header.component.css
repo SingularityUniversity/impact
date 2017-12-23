@@ -16,6 +16,16 @@
   text-align: center;
   line-height: 50px;
   margin: 0;
+  cursor: pointer;
+  opacity: 0.9
+}
+
+.header h1:hover {
+  opacity: 1;
+}
+
+.header h1:focus {
+  outline: none;
 }
 
 
