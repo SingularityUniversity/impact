@@ -21,7 +21,7 @@ body {
   position: relative;
   overflow: hidden;
   padding: 0;
-  min-height: 430px;
+  min-height: 325px;
 }
 
 
@@ -196,11 +196,17 @@ b, strong {
 
 .initiative-info .col-md-4 .stats .main {
   font-family: AvantGarde-Demi;
-  font-size: 22px;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #2167b0;
+}
+
+.program {
+  color: #688B32
 }
 
 .initiative-info .col-md-4 .stats .sub {
-  font-size: 38px;
+  font-size: 28px;
   font-family: AvantGarde-Demi;
   text-transform: uppercase;
   line-height: 100%;
@@ -232,7 +238,7 @@ b, strong {
 
 
 .info-columns {
-  padding: 75px 0;
+  padding: 0;
 }
 
 
@@ -262,10 +268,12 @@ b, strong {
   text-transform: uppercase;
   font-family: AvantGarde-Demi;
   line-height: 130%;
+  color: #DE2763;
+
 }
 
 .info-columns .info_text, .info-columns .info_text p {
-  font-size: 15px;
+  font-size: 20px;
   line-height: 22px;
   letter-spacing: .54px;
   font-family: CaeciliaLTPro-45Light;
@@ -273,10 +281,15 @@ b, strong {
 }
 
 .h2, .h2 p, h2 {
-  font-size: 32px;
+  font-size: 28px;
   letter-spacing: .5px;
+  margin-top: 65px;
   line-height: 1.2em;
   font-family: AvantGardeGothicITCW01XLt;
   text-transform: uppercase;
+}
+
+.h2 p.summary {
+    color: #DE2763;
 
 }

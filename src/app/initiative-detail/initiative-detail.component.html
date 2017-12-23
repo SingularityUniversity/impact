@@ -1,7 +1,5 @@
 <div *ngIf="initiative" class="initiative-detail">
-
   <div>
-
     <div class="jumbotron initiative-detail-header"
          style="background: url(https://su-cms-prod.s3.amazonaws.com/media/news_images/support_people2_tech_robotics.jpg);
        background-size: cover; background-position: center center;">
@@ -28,11 +26,12 @@
 
           <div class="col-md-4">
             <div class="h2">
-              <p><span>
-              <strong>
-                {{ initiative.summary.slice(0, 40) }}
-              </strong> {{ initiative.summary.slice(40, 80) }}
-            </span></p>
+              <p class="summary" *ngIf="initiative.summary.length < 100">
+                {{ initiative.summary.slice(0, 100) }}
+              </p>
+              <p class="summary" *ngIf="initiative.summary.length >= 100">
+                {{ initiative.summary.slice(0, 100) }}...
+              </p>
             </div>
           </div>
 
@@ -75,7 +74,18 @@
         <div class="row">
           <div class="col-md-4 three-wide info-box ">
             <div>
+                <p class="section-title">
+                HOW IT ALL BEGAN</p>
+              <div class="info_text">
+                <p><span><b>{{ initiative.contact_name }}</b> started
+                  {{ initiative.name }} after attending SU's <span class="program">{{ initiative.program }}</span>.
+            </span></p>
+            </div>
+          </div>
+          </div>
 
+          <div class="col-md-4 three-wide info-box ">
+            <div>
               <p class="section-title">
                 MASSIVE TRANSFORMATIVE PURPOSE</p>
               <div class="info_text">
@@ -90,32 +100,16 @@
               <p class="section-title">
                 GLOBAL GRAND CHALLENGE								</p>
               <div class="info_text"><p>
-              <span><b>Security: </b>Safety of all people from physical and psychological harm,
-                including in virtual worlds; and protection of physical,
-                financial, digital systems.
+              <span><b>{{ initiative.ggc_focus[0]}}: </b>{{ ggcBlurb }}
               </span></p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 three-wide info-box ">
-            <div>
 
-              <p class="section-title">
-                EXPONENTIAL TECHNOLOGIES								</p>
-              <div class="info_text"><p>
-              <span>Exponential technologies have a tendency to move from a deceptively
-                slow pace of development to a disruptively fast pace. We often disregard
-                or don’t notice technologies in the deceptive growth phase, until they
-                begin changing the way we live and do business. Driven by information
-                technologies, products and services become digitized, dematerialized,
-                demonetized and/or democratized and enter a phase of exponential growth.
-              </span></p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-
-
     </div>
+
+
   </div>
+</div>
