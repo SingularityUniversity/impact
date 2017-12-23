@@ -12,7 +12,7 @@ import { InitiativeSearchService } from '../initiative-search.service';
 })
 export class InitiativeDetailComponent implements OnInit {
 
-  @Input () initiative: Initiative;
+  @Input() initiative: Initiative;
   constructor(
     private route: ActivatedRoute,
     private initiativeSearchService: InitiativeSearchService,

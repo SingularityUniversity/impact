@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: baseline;
-  margin: 50px;
+  margin: 0;
 }
 
 .box {
@@ -34,6 +34,12 @@ label {
   margin: .5em 0;
   color: #607D8B;
   font-weight: bold;
+}
+
+@media screen and (min-width: 450px) {
+  .search-tools {
+    margin: 50px;
+  }
 }
 
 

@@ -1,5 +1,4 @@
 import {Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
 import { InitiativeSearchService } from '../initiative-search.service';
 import { Initiative } from '../initiative';
 import { InitiativeDataService } from '../initiative-data.service';
@@ -29,8 +28,7 @@ export class InitiativeSearchComponent implements OnInit {
 
   constructor(
     private initiativeSearchService: InitiativeSearchService,
-    private initiativeDataService: InitiativeDataService,
-    private router: Router) {
+    private initiativeDataService: InitiativeDataService) {
 
   }
 

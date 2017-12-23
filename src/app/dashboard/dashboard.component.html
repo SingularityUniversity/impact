@@ -1,6 +1,21 @@
 <div class="dashboard">
-<div class="jumbotron"></div>
+  <div class="jumbotron curves">
+    <div class="graphics">
+      <img src="../../assets/img/woman_in_tech.jpg">
 
-<my-initiative-search (searchConducted)="getInitiatives($event)"></my-initiative-search>
-<app-initiatives [initiatives]="initiatives"></app-initiatives>
+      <div class="left-curves">
+        <div class="curve1"></div>
+        <div class="curve2"></div>
+        <div class="curve3"></div>
+      </div>
+
+      <div class="right-curves">
+        <div class="curve4"></div>
+        <div class="curve5"></div>
+        <div class="curve6"></div>
+      </div>
+    </div>
+  </div>
+  <my-initiative-search (searchConducted)="getInitiatives($event)"></my-initiative-search>
+  <app-initiatives [initiatives]="initiatives"></app-initiatives>
 </div>

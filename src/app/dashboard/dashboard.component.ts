@@ -7,7 +7,7 @@ import {InitiativeSearchService} from "../initiative-search.service";
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
-  providers: [InitiativeSearchService]
+  providers: [ InitiativeSearchService ]
 })
 
 export class DashboardComponent implements OnInit {

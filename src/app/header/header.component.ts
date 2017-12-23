@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
 
 
   /**
-   * Array of links and sublinks in  cuppa sidenav
+   * Array of links and sublinks in cuppa sidenav
    */
   public menuItemsArray: any[] = [
     {"title":"Home", "link":"/"},
