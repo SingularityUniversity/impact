@@ -33,7 +33,7 @@ input, select {
 }
 
 input:hover, select:hover {
-  border: solid 1px #607D8B;
+  border: solid 1px #DE2763;
 }
 
 input:focus, select:focus {

@@ -1,8 +1,6 @@
 <div *ngIf="initiative" class="initiative-detail">
   <div>
-    <div class="jumbotron initiative-detail-header"
-         style="background: url(https://su-cms-prod.s3.amazonaws.com/media/news_images/support_people2_tech_robotics.jpg);
-       background-size: cover; background-position: center center;">
+    <div class="jumbotron initiative-detail-header">
       <div class="container">
         <div class="row">
           <div class="col-md-6"></div>
@@ -11,7 +9,7 @@
               <p class="small-text text-white"></p>
               <div class="h2 text-white"><p><strong>{{ initiative.name }}</strong></p>
               </div>
-              <a href="{{ initiative.url }}" class="btn primary">
+              <a href="{{ initiative.url }}" class="btn primary" target="_blank">
                 Visit Site							<span></span>
               </a>
             </div>

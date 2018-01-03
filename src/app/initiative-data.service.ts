@@ -78,10 +78,56 @@ export class InitiativeDataService {
     },
   };
 
+  private tech_details = {
+    "nanotechnology & digital fabrication": {
+      "image": "https://su-cms-prod.s3.amazonaws.com/media/news_images/nanotechnology.jpg"
+    },
+    "networks & computing systems": {
+      "image": "https://su-cms-prod.s3.amazonaws.com/media/news_images/microchip-kurzweil-predictions.jpg"
+    },
+    "robotics": {
+      "image": "https://su-cms-prod.s3.amazonaws.com/media/news_images/support_people2_tech_robotics.jpg"
+    },
+    "biotechnology": {
+      "image": "https://su-cms-prod.s3.amazonaws.com/media/news_images/nanotechnology.jpg"
+    },
+    "artificial intelligence": {
+      "image": "https://su-cms-prod.s3.amazonaws.com/media/news_images/digital_biology.jpg"
+    },
+    "digital biology": {
+      "image": "https://su-cms-prod.s3.amazonaws.com/media/news_images/digital_biology.jpg"
+    },
+    "digital manufacturing": {
+      "image": "https://su-cms-prod.s3.amazonaws.com/media/news_images/3d-printing-disaster-relief-homepage.jpg"
+    },
+    "other": {
+      "image": "https://s3-us-west-2.amazonaws.com/su-cms-prod/media/news_images/hand-butterflies-su-exponential.jpeg"
+    }
+};
+
+  /**
+   * Get description of Global Grand Challenge
+   * @param {string} ggc
+   * @returns {string}
+   */
   public getBlurb (ggc: string) {
     return this.ggc_details[ggc.toLowerCase()].blurb;
   }
 
+  /**
+   * Get image associated with exponential technology focus
+   * @param {string} tech
+   * @returns {string|string|string|string|string|string}
+   */
+  public getTechImage(tech: string) {
+    return this.tech_details[tech.toLowerCase()].image;
+  }
+
+  /**
+   * Get icon associated with Global Grand Challenge
+   * @param {string} ggc
+   * @returns {string}
+   */
   public getIcon (ggc: string) {
     return this.ggc_details[ggc.toLowerCase()].icon;
   }

@@ -1,0 +1,23 @@
+  <div class="search-results">
+    <div *ngFor="let initiative of initiatives"
+      class="initiative-listing">
+
+      <a (click)="gotoDetail(initiative)" class="initiative">
+        <div class="initiative-content">
+
+
+          <div class="image" [style.background-image]="getBackground(initiative)">
+          </div>
+          <div class="initiative-info">
+            <div class="ggc-box fa {{ getIcon(initiative) }}">
+              <span></span>
+            </div>
+            <p class="small-text">{{ initiative.type_of_initiative}}</p>
+            <p class="name">{{ initiative.name }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <p class="no-initiatives" *ngIf="initiatives.length === 0">No Initiatives Found</p>
+  </div>

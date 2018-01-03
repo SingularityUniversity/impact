@@ -24,7 +24,7 @@
   opacity: 0.9;
 }
 
-.header h1:focus {
+.header, .header h1:focus {
   outline: none;
 }
 
