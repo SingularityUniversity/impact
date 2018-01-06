@@ -15,6 +15,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { InitiativeSearchComponent } from './initiative-search/initiative-search.component';
 import { HeaderComponent } from './header/header.component';
 import { InitiativesComponent } from './initiatives/initiatives.component';
+import {UserComponent} from "./user/user.component";
+import {AuthService} from "./auth.service";
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { InitiativesComponent } from './initiatives/initiatives.component';
     InitiativeSearchComponent,
     InitiativesComponent,
     MessagesComponent,
+    UserComponent,
   ],
   exports: [
     AppComponent,
@@ -35,6 +38,7 @@ import { InitiativesComponent } from './initiatives/initiatives.component';
     InitiativeSearchComponent,
     InitiativesComponent,
     MessagesComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,7 @@ import { InitiativesComponent } from './initiatives/initiatives.component';
     SlideMenuModule,
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [InitiativeDataService, MessageService],
+  providers: [InitiativeDataService, MessageService, AuthService],
   bootstrap: [AppComponent]
 
 })
