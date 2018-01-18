@@ -1,3 +1,17 @@
-<div id="btn-login" (click)="login()">
-  <i class="fa fa-2x fa-user" aria-hidden="true"></i>
-</div>
+<!--<div id="btn-login" (click)="login()">-->
+  <!--<i class="fa fa-2x fa-user" aria-hidden="true"></i>-->
+<!--</div>-->
+
+      <div
+        class="sign-in"
+        *ngIf="!auth.isAuthenticated()"
+        (click)="auth.login()">
+          Log In
+      </div>
+
+      <div
+        class="sign-in"
+        *ngIf="auth.isAuthenticated()"
+        (click)="auth.logout()">
+          Log Out
+      </div>

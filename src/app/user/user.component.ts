@@ -9,7 +9,9 @@ declare var Auth0Lock;
 
 export class UserComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(public auth: AuthService) {
+    auth.handleAuthentication();
+  }
 
   ngOnInit() {
   }
@@ -18,7 +20,7 @@ export class UserComponent implements OnInit {
    * Authenticate user
    */
   public login () {
-    this.authService.login();
+    this.auth.login();
   }
 
   /**
@@ -29,7 +31,7 @@ export class UserComponent implements OnInit {
     const DOMAIN: string = 'singularityu-dev.auth0.com';
 
     // Get Auth0's lock object using credentials
-    var lock = new Auth0Lock(CLIENT_ID, DOMAIN);
+    let lock = new Auth0Lock(CLIENT_ID, DOMAIN);
 
     document.getElementById('btn-login').addEventListener('click', function () {
     });

@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
    */
   public menuItemsArray: any[] = [
     {"title":"Home", "link":"/"},
-    {"title":"Dashboard","link":"./dashboard",
+    {"title":"Impact Dashboard","link":"./dashboard",
       "subItems":[
         {"title": "Dashboard", "link":"./dashboard"},
       ]

@@ -17,6 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { InitiativesComponent } from './initiatives/initiatives.component';
 import {UserComponent} from "./user/user.component";
 import {AuthService} from "./auth.service";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import {AuthService} from "./auth.service";
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    HttpClientModule,
     routing,
     SlideMenuModule,
   ],
