@@ -6,18 +6,12 @@ var replace = require('gulp-replace');
 var s3Credentials = {
   "key":    "AKIAIAK35SU4VGCVUTRQ",
   "secret": "JA9//T/DsQyh7fawo3tSx1xFgFG+vkUHo6Qt897g",
-  "bucket": "initiatives",
+  "bucket": "initiatives.su.org",
   "region": "us-east-1"
 };
 
 
-gulp.task('amend', function() {
-  gulp.src(['src/index.html'])
-    .pipe(replace('<base href="/">', '<base href="/initiatives/">'))
-    .pipe(gulp.dest('src/'))
-})
-
-gulp.task('build', ['amend'], function (cb) {
+gulp.task('build', function (cb) {
   exec('ng build', function (err, stdout, stderr) {
     console.info(stdout);
     console.info(stderr);
@@ -32,10 +26,4 @@ gulp.task('deploy', ['build'], function () {
 });
 
 
-gulp.task('revert', ['deploy'], function () {
-  gulp.src(['src/index.html'])
-      .pipe(replace('<base href="/initiatives/">', '<base href="/">'))
-      .pipe(gulp.dest('src/'))
-  })
-
-gulp.task('default', ['revert']);
+gulp.task('default', ['deploy']);

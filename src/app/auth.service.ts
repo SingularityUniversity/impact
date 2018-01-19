@@ -28,10 +28,10 @@ export class AuthService {
 
 
   public getProfile(authTokenId: string) {
-    const url: string = 'https://su-directory-webapp-dev.herokuapp.com/api/v1/member/';
+    const url: string = 'https://su-directory-backend-dev.herokuapp.com/api/v1/member/';
     this.http.get(
       url, {
-        headers: new HttpHeaders().set('Authorization', "Bearer " + authTokenId)
+        headers: new HttpHeaders().set('Authorization', "Token " + authTokenId)
           .set('X-TOKEN-CLIENT-ID', this.clientID),
       }).subscribe(data => {
       let profileInfo = data['results'];
